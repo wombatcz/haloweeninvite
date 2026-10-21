@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Come as the thing you’re afraid of</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1;1,9..144,100..900,0..100,0..1&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEE5D0; --fg:#1B0F24; --muted:#5b4a63; --ember:#C2410C; --moss:#5f6b33; --rule:#1B0F2433;
+  --serif:"Fraunces","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --sans:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#1B0F24;--fg:#EEE5D0;--muted:#b5a6b8;--ember:#FF7A33;--moss:#B7C46A;--rule:#EEE5D033}
+}
+:root[data-theme="dark"]{--bg:#1B0F24;--fg:#EEE5D0;--muted:#b5a6b8;--ember:#FF7A33;--moss:#B7C46A;--rule:#EEE5D033}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+main{max-width:64rem;margin:0 auto;padding:clamp(1.5rem,5vw,4rem) clamp(1.25rem,5vw,3rem) 4rem}
+
+/* Hero: the one memorable thing */
+h1{
+  font-family:var(--serif);font-style:italic;font-weight:800;
+  font-size:clamp(3.25rem,13.5vw,9.5rem);line-height:.9;letter-spacing:-.035em;
+  font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1;
+  margin:clamp(2rem,8vw,5rem) 0 clamp(1.5rem,4vw,3rem);
+  text-wrap:balance;
+}
+@media (prefers-reduced-motion:no-preference){
+  h1{animation:swell 2.4s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes swell{
+    from{font-weight:100;letter-spacing:.06em;font-variation-settings:"opsz" 9,"SOFT" 0,"WONK" 0;opacity:.2}
+    to{font-weight:800;letter-spacing:-.035em;font-variation-settings:"opsz" 144,"SOFT" 100,"WONK" 1;opacity:1}
+  }
+}
+.kicker{font-family:var(--serif);font-size:1.25rem;font-weight:400;font-variation-settings:"opsz" 24,"SOFT" 50;color:var(--muted);margin:0;max-width:34ch}
+.lede{font-family:var(--serif);font-size:clamp(1.25rem,2.6vw,1.75rem);line-height:1.45;font-weight:350;font-variation-settings:"opsz" 36,"SOFT" 50;max-width:36ch;margin:0}
+
+/* Details as a hanging-label table */
+.details{margin:clamp(3rem,8vw,6rem) 0;border-top:1px solid var(--rule)}
+.row{display:grid;grid-template-columns:minmax(7rem,1fr) 3fr;gap:1rem 2rem;padding:1.5rem 0;border-bottom:1px solid var(--rule);align-items:baseline}
+dt{font-size:.9rem;font-weight:500;color:var(--muted);letter-spacing:.01em}
+dd{margin:0;font-family:var(--serif);font-size:clamp(1.75rem,4.5vw,3rem);line-height:1.1;font-weight:500;letter-spacing:-.015em;font-variation-settings:"opsz" 96,"SOFT" 30}
+dd small{display:block;margin-top:.5rem;font-family:var(--sans);font-size:1rem;font-weight:400;letter-spacing:0;line-height:1.5;color:var(--muted)}
+.date{font-variant-numeric:oldstyle-nums}
+
+/* Pull quote */
+blockquote{margin:0 0 clamp(3rem,8vw,6rem);padding:0;display:grid;grid-template-columns:minmax(7rem,1fr) 3fr;gap:1rem 2rem}
+blockquote p{margin:0;font-family:var(--serif);font-weight:300;font-size:clamp(1.5rem,3.4vw,2.4rem);line-height:1.25;font-variation-settings:"opsz" 72,"SOFT" 100;max-width:26ch;text-indent:-.45em;hanging-punctuation:first}
+blockquote footer{font-size:.9rem;color:var(--muted);font-weight:500}
+.rules{columns:2 16rem;column-gap:3rem;max-width:44rem;margin:0 0 clamp(3rem,8vw,6rem) auto;width:100%}
+.rules p{margin:0 0 1em;break-inside:avoid;max-width:44ch}
+.rules p:first-child::first-letter{font-family:var(--serif);font-weight:800;font-style:italic;font-size:3.6em;line-height:.8;float:left;padding:.08em .1em 0 0;color:var(--ember);font-variation-settings:"opsz" 144,"WONK" 1}
+
+/* RSVP */
+.rsvp{border-top:1px solid var(--rule);padding-top:2rem;display:flex;flex-wrap:wrap;gap:1.5rem 2rem;align-items:center;justify-content:space-between}
+.rsvp h2{font-family:var(--serif);font-weight:600;font-size:clamp(1.75rem,4vw,2.5rem);margin:0;letter-spacing:-.02em;font-variation-settings:"opsz" 72,"SOFT" 50}
+button{font:inherit;font-weight:600;cursor:pointer;border:2px solid var(--fg);background:transparent;color:var(--fg);padding:.8rem 1.4rem;border-radius:999px;transition:background .2s,color .2s}
+button:hover,button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+button:focus-visible{outline:3px solid var(--ember);outline-offset:3px}
+.choices{display:flex;gap:.75rem;flex-wrap:wrap}
+#reply{flex-basis:100%;margin:0;font-family:var(--serif);font-size:1.5rem;font-style:italic;min-height:2.2em;color:var(--ember);font-variation-settings:"opsz" 48,"SOFT" 100}
+
+/* Type notes for practice */
+aside{margin-top:clamp(4rem,10vw,7rem);padding-top:1.5rem;border-top:1px solid var(--rule);font-size:.9rem;color:var(--muted);display:grid;grid-template-columns:minmax(7rem,1fr) 3fr;gap:1rem 2rem}
+aside p{margin:0 0 .5rem;max-width:60ch}
+aside b{color:var(--fg);font-weight:600}
+@media (max-width:40rem){
+  .row,blockquote,aside{grid-template-columns:1fr}
+  .rules{margin-left:0}
+}
+</style>
+</head>
+<body>
+<main>
+  <p class="kicker">You’re invited to a Halloween party.</p>
+
+  <h1>Come as the thing you’re afraid of.</h1>
+
+  <p class="lede">An evening of costumes, cider and bad decisions in the dark. Bring your best fear and one story you’ve never told at a party.</p>
+
+  <dl class="details">
+    <div class="row"><dt>When</dt><dd class="date">Saturday, 31 October<small>Doors at 8 pm. Midnight is when it gets strange.</small></dd></div>
+    <div class="row"><dt>Where</dt><dd>The Old Print Shop, 13 Lantern Lane<small>Ring the bell twice. Use the back stairs.</small></dd></div>
+    <div class="row"><dt>Bring</dt><dd>A costume and a snack<small>Drinks are on us. Pumpkins are in the courtyard.</small></dd></div>
+  </dl>
+
+  <blockquote>
+    <footer>Dress code</footer>
+    <p>“Wear something that makes you a little uncomfortable, and then stand up straight.”</p>
+  </blockquote>
+
+  <div class="rules">
+    <p>Costumes are judged at ten o’clock by a panel of three guests who have not yet been chosen. Categories include most frightening, most unsettling and best use of a bedsheet.</p>
+    <p>Phones stay in pockets after midnight. The house has no signal in the cellar, and we would like to keep it that way.</p>
+  </div>
+
+  <section class="rsvp" aria-labelledby="rsvp-h">
+    <h2 id="rsvp-h">Will you come?</h2>
+    <div class="choices">
+      <button type="button" data-msg="Good. We’ll leave a light on for you.">I’ll be there</button>
+      <button type="button" data-msg="Noted. The ghosts will miss you.">I can’t make it</button>
+    </div>
+    <p id="reply" aria-live="polite"></p>
+  </section>
+
+  <aside>
+    <b>Type notes</b>
+    <div>
+      <p><b>Fraunces</b> italic, weight 800, optical size 144 for the headline; the soft and wonk axes round and tilt the letters. Weight 300 to 500 for the quote and details.</p>
+      <p><b>Instrument Sans</b> at 17 px with a 1.6 line height for small text and labels.</p>
+      <p>Try changing the <b>opsz</b>, <b>SOFT</b> and <b>WONK</b> values in the headline and watch the shapes change.</p>
+    </div>
+  </aside>
+</main>
+<script>
+document.querySelectorAll('.choices button').forEach(function(b){
+  b.addEventListener('click',function(){
+    document.querySelectorAll('.choices button').forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false')});
+    document.getElementById('reply').textContent=b.dataset.msg;
+  });
+});
+</script>
+</body>
+</html>
